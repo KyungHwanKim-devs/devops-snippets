@@ -2,10 +2,14 @@
 
 포크 떠가서 사용할것
 
-<h1> # Gitlab Flow </h1>
+## Gitlab Flow
 
-production, main(master)과 main에서 따온 feature(hotfix) 브랜치들
-feature(hotfix)브랜치는 엄격한 리뷰를 통해 main에 머지 후 main을 production에 푸시
+1. production, main(master)
+2. main에서 따온 feature(hotfix) 브랜치들
+3. feature(hotfix)브랜치는 엄격한 리뷰를 통해 main에 머지
+4. main을 production에 푸시
+
+(https://blog.kakaocdn.net/dn/cpFS3u/btrswUeKUIu/0VzMlqENM1oD2SKo8kPlZ0/img.png)
 
 # 서버운영갯수?
 
