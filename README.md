@@ -9,7 +9,7 @@
 3. feature(hotfix)브랜치는 엄격한 리뷰를 통해 main에 머지
 4. main을 production에 푸시
 
-!(https://blog.kakaocdn.net/dn/cpFS3u/btrswUeKUIu/0VzMlqENM1oD2SKo8kPlZ0/img.png)
+![gitlabflow 사진](https://blog.kakaocdn.net/dn/cpFS3u/btrswUeKUIu/0VzMlqENM1oD2SKo8kPlZ0/img.png)
 
 # 서버운영갯수?
 
