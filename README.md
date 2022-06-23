@@ -2,21 +2,26 @@
 
 포크 떠가서 사용할것
 
-# Gitlab Flow
+<h1> # Gitlab Flow </h1>
 
 production, main(master)과 main에서 따온 feature(hotfix) 브랜치들
+feature(hotfix)브랜치는 엄격한 리뷰를 통해 main에 머지 후 main을 production에 푸시
 
-# 서버운영?
+# 서버운영갯수?
 
 브랜치랑 똑같이?
+일정시간 띄울수 있는 파드면 푸시할때마다 배포 후 시간지나면 파드삭제 및 이미지 삭제 <- 가능?
 
 # networkForEks -> 아마존 EKS을 위한 네트워크(VPC) 설정
 
+파일 뜯어보기
 vpc 먼저 init 후 apply
 
 # k9s
 
 # update-kubeconfig 에 --name=클러스터 이름으로 수정
+
+kubectx
 
 # Kustomize
 
