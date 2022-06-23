@@ -12,6 +12,7 @@ data "aws_ami" "latest" {
   }
 }
 
+
 module "node_group__app" {
   source  = "tedilabs/container/aws//modules/eks-node-group"
   version = "0.14.0"
