@@ -41,8 +41,9 @@ aws eks update-kubeconfig --region ap-northeast-2 --name <이름> --role-arn arn
 # Kustomize
 
 - https://kustomize.io/
-  gitOps config 파일은 kustomize로 관리
-  patch 로 base - main(master), dev, production config
+
+gitOps config 파일은 kustomize로 관리
+patch 로 base - main(master), dev, production config
 
 # CI -> Github action
 
