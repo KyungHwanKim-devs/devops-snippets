@@ -1,6 +1,24 @@
+## TODO
+
+- ALB 설정 -> route53 도메인으로 ACM cert발급
+- CI : fansignshop 깃헙액션 수정 -> 서버별로, 총4개
+- ECR에 깃헙액션에서 수정한 이름이라 마춰서 이미지 레포 4개 만들기
+- dynamoDB sdk 사용해서 프론트, admin 에서 요청 해보기(sdk로 api 함수들 만들어서 사용)
+
 ## devOps 공부를 위한 코드 스니펫 모음
 
 포크 떠가서 사용할것
+
+### 준비 - ACM cert, irsa 권한(load balancer)
+
+1. tf vpc 설정
+2. 설정한 vpc state 바라보고 tf으로 eks 설정
+3. cert-manager 설치(컨트롤러가 의존성 가짐)
+4. alb controller 설치
+5. argoCD 설치 -> kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
+6. ingress -> alb 로 서비스배포(같은 namespace), 프리픽스 설정(/)
+7. kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+8. 로그인 -> repo등록(GitOpsRepo)
 
 # Gitlab Flow
 
