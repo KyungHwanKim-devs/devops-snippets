@@ -1,18 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello
+  name: kkhdevs-cluster-test
 spec:
+  # 업데이트 전략
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 2
+  minReadySeconds: 5
+  revisionHistoryLimit: 5
   replicas: 3
   selector:
     matchLabels:
-      app: hello
+      app: kkhdevs-cluster-test
   template:
     metadata:
-      name: hello
+      name: kkhdevs-cluster-test
       labels:
-        app: hello
+        app: kkhdevs-cluster-test
     spec:
+      #이미지 풀 시크릿
+      imagePullSecrets:
+        - name: regcred
       containers:
         - name: nginx
           image: nginxdemos/hello:plain-text
@@ -20,3 +31,34 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
+          # 생존확인
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: 8080
+          #   initialDelaySeconds: 30
+          #   periodSeconds: 5
+          #   successThreshold: 1
+          #   failureThreshold: 1
+          #   timeoutSeconds: 10
+          # 컨피그맵, 시크릿 데이터 통째로
+          envFrom:
+            - configMapRef:
+                name: mysql-config
+            - secretRef:
+                name: mysql-secret
+          # 키밸류값으로 하나씩
+          # env:
+          #   - name: MYSQL_ROOT_PASSWORD
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: mysql-config
+          #         key: MYSQL_ROOT_PASSWORD
+          #       secretKeyRef:
+          #         name: mysql-secret
+          #         key: MYSQL_ROOT_PASSWORD
+          # 파트 리소스
+          resources:
+            limits:
+              memory: "64Mi"
+              cpu: "50m"

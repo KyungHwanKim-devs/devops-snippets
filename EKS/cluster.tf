@@ -2,7 +2,7 @@ module "cluster" {
   source  = "tedilabs/container/aws//modules/eks-cluster"
   version = "0.14.0"
 
-  name               = "apne2-fastcampus"
+  name               = "kkhdevs-cluster"
   kubernetes_version = "1.21"
 
   subnet_ids   = local.subnet_groups["public"].ids

@@ -6,7 +6,7 @@ module "irsa__irsa_test" {
   description = "EKS IAM Role for Service Account of irsa-test app."
 
   oidc_provider_urls       = [module.cluster.oidc_provider_urn]
-  trusted_service_accounts = ["fastcampus:irsa-test"]
+  trusted_service_accounts = ["kkhdevs:irsa-test"]
 
   inline_policies = {
     "this" = file("policies/irsa-test.json")

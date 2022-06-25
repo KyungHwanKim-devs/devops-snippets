@@ -4,3 +4,17 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - service.yaml
+  - configmap.yaml
+  - namespace.yaml
+  - secret.yaml
+
+namespace: kkhdevs-cluster-test
+# namePrefix: dev-
+# nameSuffix: -devops
+
+# commonLabels:
+#   department: "devops"
+#   owner: "claud"
+# commonAnnotations:
+#   key1: "val1"
+#   key2: "val2"

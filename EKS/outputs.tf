@@ -29,6 +29,6 @@ output "irsa" {
 
 output "fargate_profiles" {
   value = {
-    "test" = aws_eks_fargate_profile.test
+    "kkhdevs" = aws_eks_fargate_profile.kkhdevs
   }
 }

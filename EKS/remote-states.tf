@@ -13,8 +13,7 @@ locals {
 
 data "terraform_remote_state" "network" {
   backend = "local"
-
   config = {
-    path = "${path.module}/../../terraform-aws-ubuntu/network/terraform.tfstate"
+    path = "${path.module}/../VPC/terraform.tfstate"
   }
 }

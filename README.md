@@ -15,8 +15,8 @@
 
 1. production
 2. main
-3. a. feature(?) -> 일정시간 띄울수 있는 파드면 푸시할때마다 배포 후 시간지나면 파드삭제 및 이미지 삭제 <- 가능?
-   b. feature 서버 만들어서 푸시시에 파드생성
+3. feature - on push
+4. hotfix - on push
 
 # VPC -> 아마존 EKS을 위한 네트워크(VPC) 설정
 
@@ -34,7 +34,17 @@
 
 # update-kubeconfig 에 --name=클러스터 이름으로 수정
 
-aws eks update-kubeconfig --region ap-northeast-2 --name <이름> --role-arn arn:aws:iam::<AWS_ACCOUNT_ID>:role/<생성한 롤 이름>
+aws eks update-kubeconfig --region ap-northeast-2 --name <이름>
+
+--role-arn arn:aws:iam::<AWS_ACCOUNT_ID>:role/<생성한 롤 이름>
+
+# AWS ECR 이미지 풀 권한 시크릿 생성방법 -> 내용 다시 검색
+
+kubectl create secret docker-registry regcred
+--docker-server=<AWS_ACCOUNT_ID>.dkr.ecr.ap-northeast-2.amazonaws.com
+--docker-username=AWS
+--docker-password=$(aws ecr get-login-password)
+--namespace=
 
 # kubectx
 
@@ -45,6 +55,10 @@ aws eks update-kubeconfig --region ap-northeast-2 --name <이름> --role-arn arn
 gitOps config 파일은 kustomize로 관리
 patch 로 base - main(master), dev, production config
 
+## Base
+
+## production
+
 # CI -> Github action
 
 1. Github action trigger
@@ -52,9 +66,7 @@ patch 로 base - main(master), dev, production config
 3. push image on ecr (on github action)
 4. commit & push gitOps config(on github action)
 
-# CD -> ArgoCD(fargate)
-
-fargate profile 생성 -> argocd 네임스페이스로
+# CD -> ArgoCD
 
 1. 워커노드 띄운후 설치
 

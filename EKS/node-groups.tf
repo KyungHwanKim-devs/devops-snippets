@@ -26,7 +26,7 @@ module "node_group__app" {
 
   instance_type    = "t3.small"
   instance_ami     = "ami-0073aeb06ceb4b0dc"
-  instance_ssh_key = "fastcampus"
+  instance_ssh_key = "kkhdevs"
   instance_profile = module.cluster.iam_roles["node"].instance_profile_name
 
   associate_public_ip_address = true
@@ -40,7 +40,7 @@ module "node_group__app" {
 
   node_labels = {
     role = "app"
-    team = "fastcampus"
+    team = "kkhdevs"
   }
   node_taints = []
 }
